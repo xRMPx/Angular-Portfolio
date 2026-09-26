@@ -1,19 +1,21 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+
 
 @Component({
-  selector: 'app-projects',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
+    selector: 'app-projects',
+    imports: [],
+    template: `
     <p>
       Ryan's GitHub Contributions Heatmap:
     </p>
     <div>
-      <img *ngIf="username" [src]="'https://gh-heat.anishroy.com/api/' + username + '/svg'+ githubSvgArgs" alt="GitHub Contributions Heatmap"/>
+      @if (username) {
+        <img [src]="'https://gh-heat.anishroy.com/api/' + username + '/svg'+ githubSvgArgs" alt="GitHub Contributions Heatmap"/>
+      }
     </div>
-  `,
-  styleUrls: ['./projects.component.css']
+    `,
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent {
   //move these values to a config file for easier management

@@ -1,17 +1,16 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
 import { HousingService } from '../housing.service';
 import { HousingLocation } from '../housing-location';
 import { EmailValidator, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-details',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  template: `
+    selector: 'app-details',
+    imports: [ReactiveFormsModule],
+    template: `
     <article>
-      <img class="listing-photo" [src]="housingLocation?.photo" alt="implement"/>
+      <img class="listing-photo" [src]="$safeNavigationMigration(housingLocation?.photo)" alt="implement"/>
       <section class="listing-description">
         <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
         <p class="listing-location">{{ housingLocation?.city }}, {{ housingLocation?.state }}</p>
@@ -38,7 +37,8 @@ import { EmailValidator, FormControl, FormGroup, ReactiveFormsModule } from '@an
       </section>
     </article>
   `,
-  styleUrls: ['./details.component.css']
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrls: ['./details.component.css']
 })
 export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);

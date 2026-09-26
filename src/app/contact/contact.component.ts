@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+
 
 @Component({
-  selector: 'app-contact',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
+    selector: 'app-contact',
+    imports: [],
+    template: `
     <ul>
       <li>GitHub: https://github.com/xRMPx</li>
       <li>LinkedIn: https://www.linkedin.com/in/ryan-petrillo-125591242/</li>
@@ -13,7 +12,8 @@ import { CommonModule } from '@angular/common';
     </ul>
     <button class="primary" (click)="viewResume()">Download Resume</button>
   `,
-  styleUrls: ['./contact.component.css']
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
   //TODO- Move URLs to string/configs file or environment variables for easier management

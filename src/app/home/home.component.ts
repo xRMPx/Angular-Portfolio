@@ -1,14 +1,13 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
 import { HousingLocation } from '../housing-location';
 import { HousingService } from '../housing.service';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule, HousingLocationComponent],
-  template: `
+    selector: 'app-home',
+    imports: [HousingLocationComponent],
+    template: `
     <section>
       <form>
         <input type="text" palceholder="Filter by city" #filter/>
@@ -16,11 +15,14 @@ import { HousingService } from '../housing.service';
       </form>
     </section>
     <section class="results">
-      <app-housing-location [housingLocation]="housingLocation" *ngFor="let housingLocation of filteredLocationList">
+      @for (housingLocation of filteredLocationList; track housingLocation) {
+        <app-housing-location [housingLocation]="housingLocation">
         </app-housing-location>
+      }
     </section>
-  `,
-  styleUrls: ['./home.component.css']
+    `,
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
   housingLocationList: HousingLocation[] = [];
