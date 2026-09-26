@@ -22,3 +22,9 @@ button.primary {
   color: white;
   border-radius: 8px;
 }
+
+button.primary:hover {
+  background: var(--secondary-color);
+  border-color: var(--secondary-color);
+  cursor: pointer;
+}
