@@ -5,10 +5,9 @@ import { HousingLocation } from '../housing-location';
 import { HousingService } from '../housing.service';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule, HousingLocationComponent],
-  template: `
+    selector: 'app-home',
+    imports: [CommonModule, HousingLocationComponent],
+    template: `
     <section>
       <form>
         <input type="text" palceholder="Filter by city" #filter/>
@@ -20,7 +19,7 @@ import { HousingService } from '../housing.service';
         </app-housing-location>
     </section>
   `,
-  styleUrls: ['./home.component.css']
+    styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
   housingLocationList: HousingLocation[] = [];

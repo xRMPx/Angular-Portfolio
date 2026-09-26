@@ -6,10 +6,9 @@ import { HousingLocation } from '../housing-location';
 import { EmailValidator, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-details',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  template: `
+    selector: 'app-details',
+    imports: [CommonModule, ReactiveFormsModule],
+    template: `
     <article>
       <img class="listing-photo" [src]="housingLocation?.photo" alt="implement"/>
       <section class="listing-description">
@@ -38,7 +37,7 @@ import { EmailValidator, FormControl, FormGroup, ReactiveFormsModule } from '@an
       </section>
     </article>
   `,
-  styleUrls: ['./details.component.css']
+    styleUrls: ['./details.component.css']
 })
 export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);

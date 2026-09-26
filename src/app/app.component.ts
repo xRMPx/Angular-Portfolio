@@ -4,9 +4,8 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
-  standalone: true,
-  selector: 'app-root',
-  template: `
+    selector: 'app-root',
+    template: `
     <main>
       <app-navbar/>
       <section class="content">
@@ -14,8 +13,8 @@ import { NavbarComponent } from './navbar/navbar.component';
       </section>
     </main>
   `,
-  styleUrls: ['./app.component.css'],
-  imports: [HomeComponent, RouterModule, NavbarComponent]
+    styleUrls: ['./app.component.css'],
+    imports: [HomeComponent, RouterModule, NavbarComponent]
 })
 export class AppComponent {
   title = 'Ryan Petrillo';

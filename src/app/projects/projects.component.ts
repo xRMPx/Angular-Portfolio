@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-projects',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
+    selector: 'app-projects',
+    imports: [CommonModule],
+    template: `
     <p>
       Ryan's GitHub Contributions Heatmap:
     </p>
@@ -13,7 +12,7 @@ import { CommonModule } from '@angular/common';
       <img *ngIf="username" [src]="'https://gh-heat.anishroy.com/api/' + username + '/svg'+ githubSvgArgs" alt="GitHub Contributions Heatmap"/>
     </div>
   `,
-  styleUrls: ['./projects.component.css']
+    styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent {
   //move these values to a config file for easier management
