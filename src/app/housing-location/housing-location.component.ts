@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { HousingLocation } from '../housing-location';
 import { RouterModule } from '@angular/router';
@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
       <a [routerLink]="['/details', housingLocation.id]">Learn More</a>
     </section>
   `,
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./housing-location.component.css']
 })
 export class HousingLocationComponent {

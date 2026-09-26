@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,6 +14,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     </main>
   `,
     styleUrls: ['./app.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [HomeComponent, RouterModule, NavbarComponent]
 })
 export class AppComponent {

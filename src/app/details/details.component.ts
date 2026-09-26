@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { HousingService } from '../housing.service';
@@ -10,7 +10,7 @@ import { EmailValidator, FormControl, FormGroup, ReactiveFormsModule } from '@an
     imports: [ReactiveFormsModule],
     template: `
     <article>
-      <img class="listing-photo" [src]="housingLocation?.photo" alt="implement"/>
+      <img class="listing-photo" [src]="$safeNavigationMigration(housingLocation?.photo)" alt="implement"/>
       <section class="listing-description">
         <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
         <p class="listing-location">{{ housingLocation?.city }}, {{ housingLocation?.state }}</p>
@@ -37,6 +37,7 @@ import { EmailValidator, FormControl, FormGroup, ReactiveFormsModule } from '@an
       </section>
     </article>
   `,
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./details.component.css']
 })
 export class DetailsComponent {

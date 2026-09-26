@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 
 @Component({
@@ -12,6 +12,7 @@ import { Component } from '@angular/core';
     </ul>
     <button class="primary" (click)="viewResume()">Download Resume</button>
   `,
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
