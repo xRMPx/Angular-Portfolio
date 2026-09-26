@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
     selector: 'app-projects',
-    imports: [CommonModule],
+    imports: [],
     template: `
     <p>
       Ryan's GitHub Contributions Heatmap:
     </p>
     <div>
-      <img *ngIf="username" [src]="'https://gh-heat.anishroy.com/api/' + username + '/svg'+ githubSvgArgs" alt="GitHub Contributions Heatmap"/>
+      @if (username) {
+        <img [src]="'https://gh-heat.anishroy.com/api/' + username + '/svg'+ githubSvgArgs" alt="GitHub Contributions Heatmap"/>
+      }
     </div>
-  `,
+    `,
     styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent {
